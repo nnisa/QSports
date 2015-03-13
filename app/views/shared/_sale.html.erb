@@ -1,0 +1,21 @@
+<%= will_paginate @sales %>
+
+</br>
+
+<h2> Most Recent Posts </h2>
+
+<ul class="users">
+	<% @sales.reverse.each do |sale| %>
+		<li>
+			<div class="lineimg"><%= image_tag sale.photo_url %></div>
+			<div class="linetxt">
+				<td><%= link_to sale.name, sale %> <% link_to sale %></td>
+				<p>QR <%= sale.price %> </p>
+				<p> <%= sale.condition %> </p>
+			</div>
+		</li>
+	<% end %> 
+</ul>
+
+
+<%= will_paginate @sales %>

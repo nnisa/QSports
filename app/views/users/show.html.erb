@@ -1,0 +1,30 @@
+<% provide(:title, @user.name) %>
+<h1><%= @user.name %></h1>
+<h2><%= @user.email %></h2>
+<% if @user.admin? %>
+	<h3> Administrator </h3>
+<% else %>
+<% end %>
+
+<br></br>
+
+<ul class="users">
+	<% spec_sale(@user).each do |sale| %>
+		<li>
+			<div class="lineimg"><%= image_tag sale.photo_url %></div>
+			<div class="linetxt">
+			<%= link_to sale.name, sale%>
+				<p>QR <%= sale.price %> </p>
+				<p> <%= sale.condition %> </p>
+				<p><%= link_to "edit", edit_sale_path(sale) %>
+				| <%= link_to "delete", sale, method: :delete, confirm: "You sure?" %></p>
+			</div>
+		</li>
+	<% end %> 
+</ul>
+
+<br></br>
+
+<% if current_user==@user %>
+<%= link_to "New Post", newsale_path, class: "btn btn-large btn-primary" %>
+<% end %>

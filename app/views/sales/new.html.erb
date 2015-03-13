@@ -1,0 +1,43 @@
+<% provide(:title, 'New Post') %>
+<h1>New Post</h1>
+
+<%= form_for(@sale, :html => { :multipart => true }) do |f| %>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@sale) do |f| %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+
+      <%= f.label :category %>
+      <%= f.select :category, [['Bats','Bats'],['Balls','Balls'],['Clothing','Clothing'],['Cycling','Cycling'],['Gym','Gym'],['Machines & Electronics','Machines & Electronics'],['Racquets','Racquets'],['Safety Equipment','Safety Equipment'],['Shoes','Shoes'],['Water Sports','Water Sports'], ['Others','Others']] %>
+
+      <%= f.label :brand %>
+      <%= f.text_field :brand %>
+
+      <%= f.label :size %>
+      <%= f.text_field :size %>
+
+      <%= f.label :color %>
+      <%= f.text_field :color %>
+
+      <%= f.label :price %>
+      <%= f.text_field :price %>
+
+      <%= f.label :condition %>
+      <%= f.select :condition, [['Brand New', 'Brand New'], ['Like New', 'Like New'], ['Used']] %>
+
+      <div class="field">
+        <%= f.label :photo %>
+        <%= f.file_field :photo %>
+      </div>
+
+      <%= f.submit "Post Sale", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
+<% end %>

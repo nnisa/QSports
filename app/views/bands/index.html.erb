@@ -1,0 +1,35 @@
+<% provide(:title, 'All bands') %> 
+<h1>My Listings</h1>
+
+<%= will_paginate %>
+
+<% if signed_in? && !current_user.admin? %>
+
+<ul class="bands">
+	<% current_band.each do |band| %>
+		<li>
+			<td><%= link_to band.name, band %> <% link_to band %></td>
+    			| <%= link_to "edit", edit_band_path(band) %>
+    			| <%= link_to "delete", band, method: :delete, confirm: "You sure?" %>
+		</li>
+	<% end %> 
+</ul>
+	
+	
+<% else %>
+
+<ul class="users">
+	<% @bands.each do |band| %>
+		<li>
+			
+			<td><%= link_to band.name, band %> <% link_to band %></td>
+				| <%= link_to "edit", edit_band_path(band) %>
+				| <%= link_to "delete", band, method: :delete, confirm: "You sure?" %>
+		</li>
+	<% end %> 
+</ul>
+
+<% end %>
+
+
+<%= will_paginate %>

@@ -1,0 +1,33 @@
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<% if signed_in? %>
+
+	<% if current_user.admin? %>
+			<div class="center hero-unit">
+
+				<h3>Administrative Tools</h3>
+				<br></br>
+				<%= link_to "All Users", users_path, class: "btn btn-large btn-primary" %>
+				<%= link_to "All Posts", sales_path, class: "btn btn-large btn-primary" %>
+			</div>
+	<% else %>
+			<div class="center hero-unit">
+				<%= link_to "My Posts", current_user, class: "btn btn-large btn-primary" %>
+				<%= link_to "New Post", newsale_path, class: "btn btn-large btn-primary" %>
+			</div>
+	<% end %>
+
+
+<% else %>
+<div class="center hero-unit">
+	<h1>Welcome to GearUp</h1>
+	<p>No longer need your expensive sporting equipment? Don't throw it away, sell it!</p>
+	<%= link_to "Signup", signup_path, class: "btn btn-large btn-primary" %>
+</div>
+
+<%end%>
+
+
+<%= render 'shared/sale' %>

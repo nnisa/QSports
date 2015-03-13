@@ -1,0 +1,19 @@
+---
+applications:
+  .:
+    name: .
+    framework:
+      name: rails3
+      info:
+        mem: 256M
+        description: Rails Application
+        exec: 
+    infra: hp
+    url: anaqi
+    mem: 256M
+    instances: 1
+    services:
+      anaqi-mysql-95752:
+        type: mysql
+      mysql-794a5:
+        type: mysql

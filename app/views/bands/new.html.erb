@@ -1,0 +1,38 @@
+<% provide(:title, 'New Post') %>
+<h1>New Post</h1>
+
+<%= form_for(@band, :html => { :multipart => true }) do |f| %>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@band) do |f| %>
+      <%= render 'shared/band_error_messages' %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+
+      <%= f.label :brand %>
+      <%= f.text_field :brand %>
+
+      <%= f.label :size %>
+      <%= f.text_field :size %>
+
+      <%= f.label :color %>
+      <%= f.text_field :color %>
+
+      <%= f.label :price %>
+      <%= f.text_field :price %>
+
+      <div class="field">
+        <%= f.label :photo %>
+        <%= f.file_field :photo %>
+      </div>
+
+      <%= f.submit "Post Sale", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
+<% end %>

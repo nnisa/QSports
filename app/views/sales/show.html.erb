@@ -1,0 +1,41 @@
+<% provide(:title, @sale.name) %>
+<h1><%= @sale.name %></h1>
+<h2>QR <%= @sale.price %>, <%= @sale.condition %></h2>
+
+<div class="container">
+
+	<div class="postimg">
+		<% unless @sale.photo_url.nil? %>
+		<p><%= image_tag @sale.photo_url %></p>
+		<% end %>
+	</div>
+
+	<div class="postleft">
+		<p><%= @sale.description %></p>
+
+		<p> <b>Brand:</b> <%= @sale.brand %> </p> 
+		<% if @sale.size != "" %> 
+			<p> <b>Size:</b> <%= @sale.size %> </p>
+		<% end %>
+		<p> <b>Color:</b> <%= @sale.color %> </p>
+
+		<br></br>
+	</div>
+
+	<div class="postright">
+
+		<% if @sale.status == false %> 
+			<h5> For Sale </h5>
+		<% else %>
+			<h6> Sold! </h6>
+		<% end %>
+
+		<h3> Contact Details </h3>
+		<p> <b>Name:</b> <%= User.find(@sale.owner).name %> </p>
+		<p> <b>Email:</b> <%= User.find(@sale.owner).email %> </p>
+		<p> <b>Mobile:</b> <%= User.find(@sale.owner).mobile %> </p>
+
+		<br></br>
+	</div>
+
+</div>

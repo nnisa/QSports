@@ -1,0 +1,35 @@
+<% provide(:title, 'Item Listings') %> 
+<h1>Item Listings</h1>
+
+<%= will_paginate %>
+
+<% if signed_in? && !current_user.admin? %>
+
+<ul class="users">
+	<% current_sale.each do |sale| %>
+		<li>
+			<td><%= link_to sale.name, sale %> <% link_to sale %></td>
+    			| <%= link_to "edit", edit_sale_path(sale) %>
+    			| <%= link_to "delete", sale, method: :delete, confirm: "You sure?" %>
+		</li>
+	<% end %> 
+</ul>
+	
+	
+<% else %>
+
+<ul class="users">
+	<% @sales.each do |sale| %>
+		<li>
+			
+			<td><%= link_to sale.name, sale %> <% link_to sale %></td>
+				| <%= link_to "edit", edit_sale_path(sale) %>
+				| <%= link_to "delete", sale, method: :delete, confirm: "You sure?" %>
+		</li>
+	<% end %> 
+</ul>
+
+<% end %>
+
+
+<%= will_paginate %>

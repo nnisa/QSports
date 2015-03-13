@@ -1,0 +1,15 @@
+<% provide(:title, @band.name) %>
+<h1><%= @band.name %></h1>
+<h2>QR <%= @band.price %></h2>
+
+
+<p><%= @band.description %></p>
+
+<p> <b>Brand:</b> <%= @band.brand %> </p> 
+<p> <b>Size:</b> <%= @band.size %> </p> 
+<p> <b>Color:</b> <%= @band.color %> </p>
+
+
+<% unless @band.photo_url.nil? %>
+<p><%= image_tag @band.photo_url %></p>
+<% end %>

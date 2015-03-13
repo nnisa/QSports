@@ -1,0 +1,27 @@
+<%= will_paginate @bands %>
+
+
+<% if signed_in?%>
+
+<ul class="bands">
+	<% current_band.each do |band| %>
+		<li>
+			<td><%= link_to band.name, band %> <% link_to band %></td>
+		</li>
+	<% end %> 
+</ul>
+	
+<% else %>
+
+<ul class="users">
+	<% @bands.each do |band| %>
+		<li>
+			
+			<td><%= link_to band.name, band %> <% link_to band %></td>
+		</li>
+	<% end %> 
+</ul>
+
+<% end %>
+
+<%= will_paginate @bands %>
